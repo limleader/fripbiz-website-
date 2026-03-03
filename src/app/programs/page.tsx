@@ -155,9 +155,10 @@ export default function ProgramsPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: i * 0.05 }}
+                className="h-full"
               >
-                <Link href={`/programs/${program.id}`}>
-                  <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group">
+                <Link href={`/programs/${program.id}`} className="h-full block">
+                  <div className="h-full flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group">
                     {/* 커버 이미지 */}
                     <div className="relative h-48 bg-gradient-to-br from-[#FF6B35]/20 to-[#7C3AED]/20">
                       {program.coverUrl ? (
@@ -176,7 +177,7 @@ export default function ProgramsPage() {
                     </div>
 
                     {/* 카드 내용 */}
-                    <div className="p-5">
+                    <div className="p-5 flex flex-col flex-1">
                       {/* 카테고리 태그 */}
                       {program.category && (
                         <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${CATEGORY_COLORS[program.category] ?? "bg-gray-100 text-gray-600"}`}>
@@ -210,7 +211,7 @@ export default function ProgramsPage() {
 
                       {/* 목적 태그 */}
                       {program.purpose.length > 0 && (
-                        <div className="mt-3 flex flex-wrap gap-1.5">
+                        <div className="mt-auto pt-3 flex flex-wrap gap-1.5">
                           {program.purpose.slice(0, 3).map((p) => (
                             <span key={p} className="text-xs bg-[#06D6A0]/10 text-[#06D6A0] px-2 py-0.5 rounded-full font-medium">
                               {p}
