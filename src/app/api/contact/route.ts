@@ -37,7 +37,7 @@ export async function POST(req: NextRequest) {
 
     const { error: sendError } = await resend.emails.send({
       from: "프립비즈 문의 <onboarding@resend.dev>",
-      to: [process.env.CONTACT_EMAIL || "b2b@frientrip.com"],
+      to: [process.env.CONTACT_EMAIL || "sooyul.lim@frientrip.com"],
       subject: `[프립비즈 문의] ${body.company} - ${body.name}`,
       html: `
         <h2>새로운 견적 문의가 도착했습니다</h2>
