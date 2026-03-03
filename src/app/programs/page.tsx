@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -23,10 +24,13 @@ const CATEGORY_COLORS: Record<string, string> = {
   "웰니스": "bg-teal-100 text-teal-700",
 };
 
-export default function ProgramsPage() {
+import { Suspense } from "react";
+
+function ProgramsContent() {
   const [programs, setPrograms] = useState<Program[]>([]);
   const [loading, setLoading] = useState(true);
-  const [selectedType, setSelectedType] = useState("");
+  const searchParams = useSearchParams();
+  const [selectedType, setSelectedType] = useState(() => searchParams.get("type") ?? "");
   const [selectedCategory, setSelectedCategory] = useState("");
 
   useEffect(() => {
@@ -243,5 +247,13 @@ export default function ProgramsPage() {
         )}
       </div>
     </div>
+  );
+}
+
+export default function ProgramsPage() {
+  return (
+    <Suspense>
+      <ProgramsContent />
+    </Suspense>
   );
 }

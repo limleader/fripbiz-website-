@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const services = [
   {
@@ -12,6 +13,7 @@ const services = [
     tags: ["직무 역량", "전문성 강화", "교육"],
     color: "#4F46E5",
     bgColor: "#FFF4F0",
+    programType: "인사이트 렉쳐",
   },
   {
     id: "workshop",
@@ -22,6 +24,7 @@ const services = [
     tags: ["팀빌딩", "갈등 관리", "역량 강화"],
     color: "#7C3AED",
     bgColor: "#F5F0FF",
+    programType: "인사이트 워크숍",
   },
   {
     id: "trip",
@@ -32,6 +35,7 @@ const services = [
     tags: ["워크숍 여행", "경험 학습", "맞춤 설계"],
     color: "#06D6A0",
     bgColor: "#F0FDF9",
+    programType: "인사이트 트립",
   },
 ];
 
@@ -80,11 +84,11 @@ export default function Services() {
           className="grid md:grid-cols-3 gap-8"
         >
           {services.map((service) => (
+            <Link key={service.id} href={`/programs?type=${encodeURIComponent(service.programType)}`}>
             <motion.div
-              key={service.id}
               variants={cardVariants}
               whileHover={{ y: -8, transition: { duration: 0.2 } }}
-              className="rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+              className="rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-xl transition-shadow duration-300 cursor-pointer h-full"
               style={{ backgroundColor: service.bgColor }}
             >
               {/* 아이콘 */}
@@ -127,6 +131,7 @@ export default function Services() {
                 ))}
               </div>
             </motion.div>
+            </Link>
           ))}
         </motion.div>
       </div>
