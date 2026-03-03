@@ -192,9 +192,16 @@ export default function ProgramsPage() {
 
                       {/* 메타 정보 */}
                       <div className="mt-3 space-y-1.5 text-sm text-gray-500">
-                        <div className="flex items-center gap-1 min-h-[20px]">
-                          <span>👥</span>
-                          <span>{program.capacity || "-"}</span>
+                        <div className="space-y-0.5 min-h-[20px]">
+                          {(program.capacity
+                            ? program.capacity.split(/(?=\[출강\])/).map(s => s.trim()).filter(Boolean)
+                            : ["-"]
+                          ).map((part, i) => (
+                            <div key={i} className="flex items-center gap-1">
+                              <span>👥</span>
+                              <span>{part}</span>
+                            </div>
+                          ))}
                         </div>
                         <div className="flex items-center gap-3 min-h-[20px]">
                           <span className="flex items-center gap-1">
