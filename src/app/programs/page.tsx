@@ -180,7 +180,7 @@ export default function ProgramsPage() {
                     <div className="p-5 flex flex-col flex-1">
                       {/* 카테고리 태그 */}
                       {program.category && (
-                        <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${CATEGORY_COLORS[program.category] ?? "bg-gray-100 text-gray-600"}`}>
+                        <span className={`inline-block w-fit text-xs font-semibold px-2.5 py-1 rounded-full ${CATEGORY_COLORS[program.category] ?? "bg-gray-100 text-gray-600"}`}>
                           {program.category}
                         </span>
                       )}
