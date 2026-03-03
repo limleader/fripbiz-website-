@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 const navItems = [
   { label: "서비스 소개", href: "#services" },
-  { label: "프로그램", href: "#programs" },
+  { label: "프로그램", href: "#services" },
   { label: "프로세스", href: "#process" },
   { label: "문의", href: "#contact" },
 ];
