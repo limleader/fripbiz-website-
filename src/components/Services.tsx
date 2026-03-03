@@ -10,7 +10,7 @@ const services = [
     subtitle: "Insight Lecture",
     description: "업무 스킬 강화 및 효율성 개선을 위한 맞춤형 교육·강의 프로그램입니다. 직무 역량 개발과 전문성 향상에 중점을 둡니다.",
     tags: ["직무 역량", "전문성 강화", "교육"],
-    color: "#FF6B35",
+    color: "#4F46E5",
     bgColor: "#FFF4F0",
   },
   {
@@ -60,7 +60,7 @@ export default function Services() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-[#FF6B35] font-semibold text-sm uppercase tracking-widest mb-3 block">
+          <span className="text-[#4F46E5] font-semibold text-sm uppercase tracking-widest mb-3 block">
             Our Programs
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-[#1A1A2E] mb-4">

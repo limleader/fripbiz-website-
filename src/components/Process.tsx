@@ -8,7 +8,7 @@ const steps = [
     title: "문의 접수",
     description: "전화 또는 온라인 폼으로 간단한 문의를 남겨주세요.",
     icon: "📋",
-    color: "#FF6B35",
+    color: "#4F46E5",
   },
   {
     number: "02",
@@ -29,7 +29,7 @@ const steps = [
     title: "프로그램 진행",
     description: "프로그램을 진행하고 참가자 만족도 조사를 통해 효과를 측정합니다.",
     icon: "🚀",
-    color: "#FF6B35",
+    color: "#4F46E5",
   },
   {
     number: "05",
@@ -52,7 +52,7 @@ export default function Process() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-[#FF6B35] font-semibold text-sm uppercase tracking-widest mb-3 block">
+          <span className="text-[#4F46E5] font-semibold text-sm uppercase tracking-widest mb-3 block">
             Our Process
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
@@ -66,7 +66,7 @@ export default function Process() {
         {/* 타임라인 */}
         <div className="relative">
           {/* 연결선 */}
-          <div className="hidden md:block absolute top-12 left-[10%] right-[10%] h-0.5 bg-gradient-to-r from-[#FF6B35] via-[#7C3AED] to-[#06D6A0] opacity-30" />
+          <div className="hidden md:block absolute top-12 left-[10%] right-[10%] h-0.5 bg-gradient-to-r from-[#4F46E5] via-[#7C3AED] to-[#06D6A0] opacity-30" />
 
           <div className="grid md:grid-cols-5 gap-8">
             {steps.map((step, index) => (

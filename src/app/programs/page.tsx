@@ -85,8 +85,8 @@ export default function ProgramsPage() {
               }}
               className={`px-5 py-2.5 rounded-full font-semibold text-sm transition-all duration-200 ${
                 selectedType === type.value
-                  ? "bg-[#FF6B35] text-white shadow-lg scale-105"
-                  : "bg-white text-[#1A1A2E] border border-gray-200 hover:border-[#FF6B35] hover:text-[#FF6B35]"
+                  ? "bg-[#4F46E5] text-white shadow-lg scale-105"
+                  : "bg-white text-[#1A1A2E] border border-gray-200 hover:border-[#4F46E5] hover:text-[#4F46E5]"
               }`}
             >
               {type.label}
@@ -160,7 +160,7 @@ export default function ProgramsPage() {
                 <Link href={`/programs/${program.id}`} className="h-full block">
                   <div className="h-full flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group">
                     {/* 커버 이미지 */}
-                    <div className="relative h-48 bg-gradient-to-br from-[#FF6B35]/20 to-[#7C3AED]/20">
+                    <div className="relative h-48 bg-gradient-to-br from-[#4F46E5]/20 to-[#7C3AED]/20">
                       {program.coverUrl ? (
                         <Image
                           src={program.coverUrl}
@@ -186,7 +186,7 @@ export default function ProgramsPage() {
                       )}
 
                       {/* 제목 */}
-                      <h3 className="mt-2 font-bold text-[#1A1A2E] text-base leading-snug line-clamp-2 group-hover:text-[#FF6B35] transition-colors">
+                      <h3 className="mt-2 font-bold text-[#1A1A2E] text-base leading-snug line-clamp-2 group-hover:text-[#4F46E5] transition-colors">
                         {program.title}
                       </h3>
 

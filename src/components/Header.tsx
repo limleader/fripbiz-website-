@@ -32,7 +32,7 @@ export default function Header() {
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* 로고 */}
-        <a href="#" className="text-2xl font-bold text-[#FF6B35]">
+        <a href="#" className="text-2xl font-bold text-[#4F46E5]">
           Frip<span className="text-[#7C3AED]">Biz</span>
         </a>
 
@@ -42,7 +42,7 @@ export default function Header() {
             <a
               key={item.href}
               href={item.href}
-              className="text-[#1A1A2E] hover:text-[#FF6B35] font-medium transition-colors duration-200"
+              className="text-[#1A1A2E] hover:text-[#4F46E5] font-medium transition-colors duration-200"
             >
               {item.label}
             </a>
@@ -52,7 +52,7 @@ export default function Header() {
         {/* CTA 버튼 */}
         <a
           href="#contact"
-          className="bg-[#FF6B35] hover:bg-[#e55a24] text-white px-6 py-2.5 rounded-full font-semibold transition-all duration-200 hover:scale-105 active:scale-95 shadow-lg"
+          className="bg-[#4F46E5] hover:bg-[#4338CA] text-white px-6 py-2.5 rounded-full font-semibold transition-all duration-200 hover:scale-105 active:scale-95 shadow-lg"
         >
           견적 문의하기
         </a>

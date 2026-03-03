@@ -58,7 +58,7 @@ export default function ContactForm() {
     }
   };
 
-  const inputClass = "w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-[#FF6B35] focus:ring-2 focus:ring-[#FF6B35]/20 transition-all duration-200 bg-white text-[#1A1A2E]";
+  const inputClass = "w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-[#4F46E5] focus:ring-2 focus:ring-[#4F46E5]/20 transition-all duration-200 bg-white text-[#1A1A2E]";
 
   return (
     <section id="contact" className="py-24 bg-gradient-to-br from-[#FAFAFA] to-[#F5F0FF]">
@@ -101,7 +101,7 @@ export default function ContactForm() {
               <p className="text-gray-500">1-2 영업일 내에 담당자가 연락드리겠습니다.</p>
               <button
                 onClick={() => setStatus("idle")}
-                className="mt-6 text-[#FF6B35] font-medium hover:underline"
+                className="mt-6 text-[#4F46E5] font-medium hover:underline"
               >
                 새 문의 작성하기
               </button>
@@ -112,7 +112,7 @@ export default function ContactForm() {
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                    회사명 <span className="text-[#FF6B35]">*</span>
+                    회사명 <span className="text-[#4F46E5]">*</span>
                   </label>
                   <input
                     type="text"
@@ -125,7 +125,7 @@ export default function ContactForm() {
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                    담당자 이름 <span className="text-[#FF6B35]">*</span>
+                    담당자 이름 <span className="text-[#4F46E5]">*</span>
                   </label>
                   <input
                     type="text"
@@ -142,7 +142,7 @@ export default function ContactForm() {
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                    이메일 <span className="text-[#FF6B35]">*</span>
+                    이메일 <span className="text-[#4F46E5]">*</span>
                   </label>
                   <input
                     type="email"
@@ -155,7 +155,7 @@ export default function ContactForm() {
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                    전화번호 <span className="text-[#FF6B35]">*</span>
+                    전화번호 <span className="text-[#4F46E5]">*</span>
                   </label>
                   <input
                     type="tel"
@@ -181,8 +181,8 @@ export default function ContactForm() {
                       onClick={() => handleServiceToggle(option.label)}
                       className={`px-4 py-2 rounded-full text-sm font-medium border-2 transition-all duration-200 ${
                         formData.services.includes(option.label)
-                          ? "bg-[#FF6B35] border-[#FF6B35] text-white"
-                          : "bg-white border-gray-200 text-gray-600 hover:border-[#FF6B35]"
+                          ? "bg-[#4F46E5] border-[#4F46E5] text-white"
+                          : "bg-white border-gray-200 text-gray-600 hover:border-[#4F46E5]"
                       }`}
                     >
                       {option.label}
@@ -194,7 +194,7 @@ export default function ContactForm() {
               {/* 문의 내용 */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                  문의 내용 <span className="text-[#FF6B35]">*</span>
+                  문의 내용 <span className="text-[#4F46E5]">*</span>
                 </label>
                 <textarea
                   className={`${inputClass} resize-none`}
@@ -217,7 +217,7 @@ export default function ContactForm() {
               <button
                 type="submit"
                 disabled={status === "loading"}
-                className="w-full bg-gradient-to-r from-[#FF6B35] to-[#7C3AED] text-white py-4 rounded-xl font-bold text-lg transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed shadow-xl shadow-orange-200"
+                className="w-full bg-gradient-to-r from-[#4F46E5] to-[#7C3AED] text-white py-4 rounded-xl font-bold text-lg transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed shadow-xl shadow-orange-200"
               >
                 {status === "loading" ? "전송 중..." : "문의 보내기 →"}
               </button>

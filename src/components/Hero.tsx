@@ -3,10 +3,10 @@
 import { motion } from "framer-motion";
 
 const floatingShapes = [
-  { size: 120, color: "#FF6B35", x: "10%", y: "20%", delay: 0 },
+  { size: 120, color: "#4F46E5", x: "10%", y: "20%", delay: 0 },
   { size: 80, color: "#7C3AED", x: "80%", y: "15%", delay: 0.5 },
   { size: 60, color: "#06D6A0", x: "70%", y: "70%", delay: 1 },
-  { size: 100, color: "#FF6B35", x: "15%", y: "75%", delay: 0.3 },
+  { size: 100, color: "#4F46E5", x: "15%", y: "75%", delay: 0.3 },
   { size: 40, color: "#7C3AED", x: "50%", y: "85%", delay: 0.8 },
 ];
 
@@ -45,7 +45,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-[#FF6B35]/20 rounded-full px-4 py-2 mb-6 shadow-sm"
+          className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-[#4F46E5]/20 rounded-full px-4 py-2 mb-6 shadow-sm"
         >
           <span className="w-2 h-2 rounded-full bg-[#06D6A0] animate-pulse" />
           <span className="text-sm font-medium text-[#1A1A2E]">기업 맞춤형 인사이트 프로그램</span>
@@ -59,7 +59,7 @@ export default function Hero() {
           className="text-5xl md:text-7xl font-bold text-[#1A1A2E] leading-tight mb-6"
         >
           조직에도{" "}
-          <span className="bg-gradient-to-r from-[#FF6B35] to-[#7C3AED] bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-[#4F46E5] to-[#7C3AED] bg-clip-text text-transparent">
             인사이트
           </span>
           가<br />필요합니다
@@ -86,13 +86,13 @@ export default function Hero() {
         >
           <a
             href="#services"
-            className="bg-[#FF6B35] hover:bg-[#e55a24] text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-200 hover:scale-105 active:scale-95 shadow-xl shadow-[#FF6B35]/30"
+            className="bg-[#4F46E5] hover:bg-[#4338CA] text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-200 hover:scale-105 active:scale-95 shadow-xl shadow-[#4F46E5]/30"
           >
             프로그램 둘러보기
           </a>
           <a
             href="#contact"
-            className="bg-white hover:bg-gray-50 text-[#1A1A2E] border-2 border-gray-200 px-8 py-4 rounded-full font-semibold text-lg transition-all duration-200 hover:scale-105 active:scale-95 hover:border-[#FF6B35]"
+            className="bg-white hover:bg-gray-50 text-[#1A1A2E] border-2 border-gray-200 px-8 py-4 rounded-full font-semibold text-lg transition-all duration-200 hover:scale-105 active:scale-95 hover:border-[#4F46E5]"
           >
             견적 문의하기
           </a>

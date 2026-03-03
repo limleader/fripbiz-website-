@@ -60,7 +60,7 @@ function renderBlock(block: BlockObjectResponse) {
     case "quote": {
       const text = block.quote.rich_text.map((t) => t.plain_text).join("");
       return (
-        <blockquote key={block.id} className="border-l-4 border-[#FF6B35] pl-4 italic text-gray-600 my-4">
+        <blockquote key={block.id} className="border-l-4 border-[#4F46E5] pl-4 italic text-gray-600 my-4">
           {text}
         </blockquote>
       );
@@ -69,7 +69,7 @@ function renderBlock(block: BlockObjectResponse) {
       const text = block.callout.rich_text.map((t) => t.plain_text).join("");
       const emoji = block.callout.icon?.type === "emoji" ? block.callout.icon.emoji : "💡";
       return (
-        <div key={block.id} className="flex gap-3 bg-[#FF6B35]/10 rounded-xl p-4 my-4">
+        <div key={block.id} className="flex gap-3 bg-[#4F46E5]/10 rounded-xl p-4 my-4">
           <span>{emoji}</span>
           <p className="text-gray-700">{text}</p>
         </div>
@@ -103,7 +103,7 @@ export default async function ProgramDetailPage({
   return (
     <div className="min-h-screen bg-[#FAFAFA]">
       {/* 커버 이미지 */}
-      <div className="relative h-72 md:h-96 bg-gradient-to-br from-[#FF6B35]/30 to-[#7C3AED]/30">
+      <div className="relative h-72 md:h-96 bg-gradient-to-br from-[#4F46E5]/30 to-[#7C3AED]/30">
         {program.coverUrl && (
           <Image
             src={program.coverUrl}
@@ -172,7 +172,7 @@ export default async function ProgramDetailPage({
                 {program.pricePerPerson && (
                   <div className="flex justify-between">
                     <dt className="text-gray-500">1인 금액</dt>
-                    <dd className="font-medium text-[#FF6B35]">{program.pricePerPerson}</dd>
+                    <dd className="font-medium text-[#4F46E5]">{program.pricePerPerson}</dd>
                   </div>
                 )}
                 {program.regions.length > 0 && (
@@ -206,7 +206,7 @@ export default async function ProgramDetailPage({
             {/* 문의 CTA */}
             <Link
               href="/#contact"
-              className="block w-full bg-[#FF6B35] hover:bg-[#e55a24] text-white text-center py-3 rounded-xl font-semibold transition-colors duration-200"
+              className="block w-full bg-[#4F46E5] hover:bg-[#4338CA] text-white text-center py-3 rounded-xl font-semibold transition-colors duration-200"
             >
               이 프로그램 문의하기
             </Link>

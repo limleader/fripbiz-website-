@@ -5,7 +5,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* 로고 */}
           <div>
-            <span className="text-2xl font-bold text-[#FF6B35]">
+            <span className="text-2xl font-bold text-[#4F46E5]">
               Frip<span className="text-[#7C3AED]">Biz</span>
             </span>
             <p className="text-sm mt-1 text-gray-500">
@@ -15,10 +15,10 @@ export default function Footer() {
 
           {/* 연락처 */}
           <div className="flex flex-col sm:flex-row gap-4 text-sm">
-            <a href="tel:02-6218-0031" className="hover:text-[#FF6B35] transition-colors">
+            <a href="tel:02-6218-0031" className="hover:text-[#4F46E5] transition-colors">
               📞 02-6218-0031
             </a>
-            <a href="mailto:b2b@frientrip.com" className="hover:text-[#FF6B35] transition-colors">
+            <a href="mailto:b2b@frientrip.com" className="hover:text-[#4F46E5] transition-colors">
               ✉️ b2b@frientrip.com
             </a>
           </div>
