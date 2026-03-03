@@ -213,16 +213,27 @@ export default function ProgramsPage() {
                         </div>
                       </div>
 
-                      {/* 목적 태그 */}
-                      {program.purpose.length > 0 && (
-                        <div className="mt-auto pt-3 flex flex-wrap gap-1.5">
-                          {program.purpose.slice(0, 3).map((p) => (
-                            <span key={p} className="text-xs bg-[#06D6A0]/10 text-[#06D6A0] px-2 py-0.5 rounded-full font-medium">
-                              {p}
-                            </span>
-                          ))}
-                        </div>
-                      )}
+                      {/* 태그 영역 */}
+                      <div className="mt-auto pt-3 space-y-1.5">
+                        {program.subCategory.length > 0 && (
+                          <div className="flex flex-wrap gap-1.5">
+                            {program.subCategory.slice(0, 4).map((s) => (
+                              <span key={s} className="text-xs bg-[#7C3AED]/10 text-[#7C3AED] px-2 py-0.5 rounded-full font-medium">
+                                {s}
+                              </span>
+                            ))}
+                          </div>
+                        )}
+                        {program.purpose.length > 0 && (
+                          <div className="flex flex-wrap gap-1.5">
+                            {program.purpose.slice(0, 3).map((p) => (
+                              <span key={p} className="text-xs bg-[#06D6A0]/10 text-[#06D6A0] px-2 py-0.5 rounded-full font-medium">
+                                {p}
+                              </span>
+                            ))}
+                          </div>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </Link>

@@ -17,13 +17,13 @@ export interface Program {
   duration: string;
   pricePerPerson: string;
   regions: string[];
+  subCategory: string[];
   coverUrl: string | null;
   status: string;
 }
 
 export interface ProgramDetail extends Program {
   keywords: string;
-  subCategory: string[];
   notionUrl: string | null;
   blocks: BlockObjectResponse[];
 }
@@ -76,6 +76,11 @@ function extractProgram(page: PageObjectResponse): Program {
       ? props["상태 1"].status?.name ?? ""
       : "";
 
+  const subCategory =
+    props["중분류"]?.type === "multi_select"
+      ? props["중분류"].multi_select.map((o) => o.name)
+      : [];
+
   const cover = page.cover;
   const coverUrl =
     cover?.type === "file"
@@ -94,6 +99,7 @@ function extractProgram(page: PageObjectResponse): Program {
     duration,
     pricePerPerson,
     regions,
+    subCategory,
     coverUrl,
     status,
   };
@@ -149,11 +155,6 @@ export async function getProgramDetail(id: string): Promise<ProgramDetail | null
         ? props["키워드"].rich_text.map((t) => t.plain_text).join("")
         : "";
 
-    const subCategory =
-      props["중분류"]?.type === "multi_select"
-        ? props["중분류"].multi_select.map((o) => o.name)
-        : [];
-
     const notionUrl =
       props["URL"]?.type === "url" ? props["URL"].url : null;
 
@@ -163,7 +164,7 @@ export async function getProgramDetail(id: string): Promise<ProgramDetail | null
       (b): b is BlockObjectResponse => b.object === "block"
     );
 
-    return { ...base, keywords, subCategory, notionUrl, blocks };
+    return { ...base, keywords, notionUrl, blocks };
   } catch {
     return null;
   }
