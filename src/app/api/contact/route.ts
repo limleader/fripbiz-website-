@@ -35,7 +35,7 @@ export async function POST(req: NextRequest) {
       ? body.services.join(", ")
       : "미선택";
 
-    await resend.emails.send({
+    const { error: sendError } = await resend.emails.send({
       from: "프립비즈 문의 <onboarding@resend.dev>",
       to: [process.env.CONTACT_EMAIL || "b2b@frientrip.com"],
       subject: `[프립비즈 문의] ${body.company} - ${body.name}`,
@@ -51,6 +51,11 @@ export async function POST(req: NextRequest) {
         </table>
       `,
     });
+
+    if (sendError) {
+      console.error("Resend error:", sendError);
+      return NextResponse.json({ error: `이메일 발송 실패: ${sendError.message}` }, { status: 500 });
+    }
 
     return NextResponse.json({ success: true });
   } catch {
