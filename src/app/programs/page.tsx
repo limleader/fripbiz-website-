@@ -191,22 +191,19 @@ export default function ProgramsPage() {
                       </h3>
 
                       {/* 메타 정보 */}
-                      <div className="mt-3 flex flex-wrap gap-3 text-sm text-gray-500">
-                        {program.capacity && (
+                      <div className="mt-3 space-y-1.5 text-sm text-gray-500">
+                        <div className="flex items-center gap-1 min-h-[20px]">
+                          <span>👥</span>
+                          <span>{program.capacity || "-"}</span>
+                        </div>
+                        <div className="flex items-center gap-3 min-h-[20px]">
                           <span className="flex items-center gap-1">
-                            <span>👥</span> {program.capacity}
+                            <span>⏱</span> {program.duration || "-"}
                           </span>
-                        )}
-                        {program.duration && (
                           <span className="flex items-center gap-1">
-                            <span>⏱</span> {program.duration}
+                            <span>💰</span> {program.pricePerPerson || "-"}
                           </span>
-                        )}
-                        {program.pricePerPerson && (
-                          <span className="flex items-center gap-1">
-                            <span>💰</span> {program.pricePerPerson}
-                          </span>
-                        )}
+                        </div>
                       </div>
 
                       {/* 목적 태그 */}
