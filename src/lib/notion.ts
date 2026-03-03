@@ -103,17 +103,16 @@ function extractProgram(page: PageObjectResponse): Program {
 type NotionFilter = any;
 
 export async function getPrograms(programType?: string): Promise<Program[]> {
-  const filter: NotionFilter = programType
-      ? {
-          and: [
-            { property: "상태 1", status: { equals: "신청가능" } },
-            {
-              property: "프로그램 유형",
-              multi_select: { contains: programType },
-            },
-          ],
-        }
-      : { property: "상태 1", status: { equals: "신청가능" } };
+  const baseFilters: NotionFilter[] = [
+    { property: "상태 1", status: { equals: "신청가능" } },
+    { property: "제목", title: { is_not_empty: true } },
+  ];
+
+  if (programType) {
+    baseFilters.push({ property: "프로그램 유형", multi_select: { contains: programType } });
+  }
+
+  const filter: NotionFilter = { and: baseFilters };
 
   const results: Program[] = [];
   let cursor: string | undefined;
