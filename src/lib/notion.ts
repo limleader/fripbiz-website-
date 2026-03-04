@@ -7,6 +7,10 @@ import type {
 const notion = new Client({ auth: process.env.NOTION_API_KEY });
 const DB_ID = process.env.NOTION_DB_ID!;
 
+export type RichBlock = BlockObjectResponse & {
+  children?: RichBlock[];
+};
+
 export interface Program {
   id: string;
   title: string;
@@ -25,7 +29,7 @@ export interface Program {
 export interface ProgramDetail extends Program {
   keywords: string;
   notionUrl: string | null;
-  blocks: BlockObjectResponse[];
+  blocks: RichBlock[];
 }
 
 function extractProgram(page: PageObjectResponse): Program {
@@ -143,6 +147,23 @@ export async function getPrograms(programType?: string): Promise<Program[]> {
   return results;
 }
 
+async function fetchBlocksWithChildren(blockId: string): Promise<RichBlock[]> {
+  const response = await notion.blocks.children.list({ block_id: blockId, page_size: 100 });
+  const blocks = response.results.filter(
+    (b): b is BlockObjectResponse => b.object === "block"
+  ) as RichBlock[];
+
+  await Promise.all(
+    blocks.map(async (block) => {
+      if (block.has_children && (block.type === "column_list" || block.type === "column" || block.type === "callout")) {
+        block.children = await fetchBlocksWithChildren(block.id);
+      }
+    })
+  );
+
+  return blocks;
+}
+
 export async function getProgramDetail(id: string): Promise<ProgramDetail | null> {
   try {
     const page = (await notion.pages.retrieve({ page_id: id })) as PageObjectResponse;
@@ -158,11 +179,7 @@ export async function getProgramDetail(id: string): Promise<ProgramDetail | null
     const notionUrl =
       props["URL"]?.type === "url" ? props["URL"].url : null;
 
-    // Fetch page content blocks
-    const blocksResponse = await notion.blocks.children.list({ block_id: id });
-    const blocks = blocksResponse.results.filter(
-      (b): b is BlockObjectResponse => b.object === "block"
-    );
+    const blocks = await fetchBlocksWithChildren(id);
 
     return { ...base, keywords, notionUrl, blocks };
   } catch {
