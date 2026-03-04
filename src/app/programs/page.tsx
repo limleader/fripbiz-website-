@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -30,7 +30,8 @@ function ProgramsContent() {
   const [programs, setPrograms] = useState<Program[]>([]);
   const [loading, setLoading] = useState(true);
   const searchParams = useSearchParams();
-  const [selectedType, setSelectedType] = useState(() => searchParams.get("type") ?? "");
+  const router = useRouter();
+  const selectedType = searchParams.get("type") ?? "";
   const [selectedCategory, setSelectedCategory] = useState("");
 
   useEffect(() => {
@@ -84,7 +85,7 @@ function ProgramsContent() {
             <button
               key={type.value}
               onClick={() => {
-                setSelectedType(type.value);
+                router.push(type.value ? `/programs?type=${encodeURIComponent(type.value)}` : "/programs");
                 setSelectedCategory("");
               }}
               className={`px-5 py-2.5 rounded-full font-semibold text-sm transition-all duration-200 ${
